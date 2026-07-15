@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OOP Mastery - Beginner to Expert
 
 ## Focus: 4 Core OOP Concepts
@@ -43,3 +44,6 @@ dart run path/to/file.dart
 ---
 
 Start with **Module 1 → BRIEFING.md** and work sequentially.
+=======
+# dart-object-oriented-programming-practice
+>>>>>>> edc36b0a23b9c5fabbf751267f3b7d0c4a25a86b
