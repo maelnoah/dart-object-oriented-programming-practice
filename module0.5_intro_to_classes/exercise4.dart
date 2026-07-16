@@ -52,32 +52,50 @@
 //    - Display again
 
 // STARTER CODE:
-// class Song {
-//   // TODO: add fields and constructor
-//
-//   // TODO: add displayInfo method
-// }
-//
-// class Playlist {
-//   // TODO: add fields and constructor
-//
-//   // TODO: add addSong method
-//
-//   // TODO: add removeSong method
-//
-//   // TODO: add getTotalDuration method
-//
-//   // TODO: add displayPlaylist method
-//
-//   // TODO: add displaySongCount method
-// }
-//
-// void main() {
-//   // TODO: create playlist
-//   // TODO: create songs
-//   // TODO: add songs to playlist
-//   // TODO: display, remove, display again
-// }
+class Song {
+  // TODO: add fields and constructor
+  String title;
+  String artist;
+  int duration;
+
+  Song (this.title, this.artist, this.duration);
+
+  // TODO: add displayInfo method
+  displayInfo(){
+    print("$title by $artist (${duration}s)");
+  }
+}
+
+class Playlist {
+  // TODO: add fields and constructor
+  String name;
+  List<Song> songs = [];
+
+  Playlist(this.name){
+    print("Playlist '$name' created!");
+  }
+
+  // TODO: add addSong method
+  addSong(Song song){
+    songs.add(song);
+    print("Added: ${song.title}");
+  }
+
+  // TODO: add removeSong method
+
+  // TODO: add getTotalDuration method
+
+  // TODO: add displayPlaylist method
+
+  // TODO: add displaySongCount method
+}
+
+void main() {
+  // TODO: create playlist
+  // TODO: create songs
+  // TODO: add songs to playlist
+  // TODO: display, remove, display again
+}
 
 // EXPECTED OUTPUT (example):
 // Playlist 'My Favorites' created!
