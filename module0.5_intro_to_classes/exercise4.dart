@@ -82,19 +82,64 @@ class Playlist {
   }
 
   // TODO: add removeSong method
-
+  removeSong(String title){
+    for(var song in songs){ // loop thru sing list
+      if(song.title == title){
+        songs.remove(song);
+        print("Removed: $title");
+        return;
+      }
+    }
+    print("Song '$title' not found");
+  }
+  
   // TODO: add getTotalDuration method
+  int getTotalDuration (){
+    int total = 0;
+    for(var song in songs){
+      total += song.duration;
+    }
+    return total;
+  }
 
-  // TODO: add displayPlaylist method
+// TODO: add displayPlaylist method
+void displayPlaylist(){
+ print("=== Playlist: $name ===");
+ if(songs.isEmpty){
+  print("(empty playlist)");
+ } else {
+  for(var song in songs){
+    song.displayInfo();
+  }
+  print("Total duration: ${getTotalDuration()}s");
+ }
+ }
 
   // TODO: add displaySongCount method
+  displaySongCount(){
+    print("Songs in playlist: ${songs.length}");
+  }
+
+  
 }
 
 void main() {
   // TODO: create playlist
+  Playlist myPlaylist = Playlist("My Favorites");
   // TODO: create songs
+  Song song1 = Song("Bohemian Rhapsody", "Queen", 354);
+  Song song2 = Song("Imagine", "John Lennon", 183);
+  Song song3 = Song("Stairway to Heaven", "Led Zeppelin", 482);
+  Song song4 = Song("Hotel California", "Eagles", 391);
   // TODO: add songs to playlist
+  myPlaylist.addSong(song1);
+  myPlaylist.addSong(song2);
+  myPlaylist.addSong(song3);
+  myPlaylist.addSong(song4);
   // TODO: display, remove, display again
+  myPlaylist.displaySongCount();
+  myPlaylist.removeSong("Imagine");
+  myPlaylist.displaySongCount();
 }
 
 // EXPECTED OUTPUT (example):
