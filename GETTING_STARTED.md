@@ -79,10 +79,11 @@ You MUST understand this before Module 1, because:
 
 - `module1_encapsulation/BRIEFING.md` — Start here
 - `module1_encapsulation/concept_examples.dart` — Run this
-- `module1_encapsulation/exercise1.dart` — Student Grades
-- `module1_encapsulation/exercise2.dart` — Library Book
+- `module1_encapsulation/exercise1.dart` — Student Grades (beginner)
+- `module1_encapsulation/exercise2.dart` — Library Book (medium)
+- `module1_encapsulation/exercise3.dart` — Temperature Converter (beginner - getters/setters)
 
-**Time**: ~2-3 hours total
+**Time**: ~3-4 hours total
 
 ### Module 2: Inheritance ✓ Ready
 **Goal**: Reuse code, build hierarchies
