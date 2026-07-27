@@ -47,29 +47,78 @@
 //    - Set temperature using fahrenheit setter (e.g., 32°F = 0°C)
 //    - Print final values
 
-// STARTER CODE:
-// class Temperature {
-//   // TODO: add private field
-//
-//   // TODO: add constructor with validation
-//
-//   // TODO: add celsius getter
-//
-//   // TODO: add fahrenheit getter
-//
-//   // TODO: add celsius setter
-//
-//   // TODO: add fahrenheit setter
-//
-//   // TODO: add getDescription method
-// }
-//
-// void main() {
-//   // TODO: create temperature
-//   // TODO: print values
-//   // TODO: test setters
-//   // TODO: test validation
-// }
+//STARTER CODE:
+class Temperature {
+  // TODO: add private field
+  double _celsius = 0.0;
+
+  // TODO: add constructor with validation
+  Temperature(double initialCelsius){
+    if(initialCelsius >= -273.15){
+      this._celsius = initialCelsius;
+    }else {
+      print("Error: Temperature cannot be below -273.15");
+      this._celsius = 0.0;
+    }
+
+  }
+  // TODO: add celsius getter
+  double get celsius => _celsius;
+
+  // TODO: add fahrenheit getter
+  double get fahrenheit => (_celsius * 9/5) + 32;
+
+  // TODO: add celsius setter
+  set celsius(double newTemp) {
+    if (newTemp >= -273.15) {
+      _celsius = newTemp;
+    } else {
+      print("Error: Temperature cannot be below -273.15");
+    }
+  }
+
+  // TODO: add fahrenheit setter
+  set fahrenheit(double tempF) {
+    double tempC = (tempF - 32) * 5/9;
+    celsius = tempC;
+  }
+
+  // TODO: add getDescription method
+  String getDescription() {
+    if (_celsius < 0) {
+      return "Below freezing";
+    } else if (_celsius == 0) {
+      return "Freezing point";
+    } else if (_celsius > 0 && _celsius < 100) {
+      return "Room temperature range";
+    } else {
+      return "Boiling point or above";
+    }
+  }
+}
+
+void main() {
+  Temperature temp = Temperature(25.0);
+  print("Celsius: ${temp.celsius}°C");
+  print("Fahrenheit: ${temp.fahrenheit}°F");
+  print("${temp.getDescription()}");
+
+  temp.celsius = 100.0;
+  print("\nChanged to 100°C");
+  print("Celsius: ${temp.celsius}°C");
+  print("Fahrenheit: ${temp.fahrenheit}°F");
+  print("${temp.getDescription()}");
+
+  print("\nTrying invalid temperature -300°C:");
+  temp.celsius = -300.0;
+  print("Celsius: ${temp.celsius}°C");  // Still 100, validation blocked it
+
+  print("\nSetting via Fahrenheit (32°F = 0°C):");
+  temp.fahrenheit = 32.0;
+  print("Celsius: ${temp.celsius}°C");
+  print("Fahrenheit: ${temp.fahrenheit}°F");
+  print("${temp.getDescription()}");
+}
 
 // EXPECTED OUTPUT (example):
 // Celsius: 25.0°C
