@@ -39,29 +39,41 @@
 //    - Print: "Status: Available" OR "Borrowed by $_borrowedBy"
 
 // STARTER CODE:
-// class Book {
-//   // TODO: add fields
-//
-//   // TODO: add constructor
-//
-//   // TODO: add getters
-//
-//   // TODO: add borrowBook method
-//
-//   // TODO: add returnBook method
-//
-//   // TODO: add displayInfo method
-// }
-//
+class Book {
+  // TODO: add fields
+  late String _title;
+  late String _author;
+  late bool _isAvailable;
+  String? _borrowedBy;
+  
+  // TODO: add constructor
+  Book(this._title, this._author) {
+    _isAvailable = true;
+    _borrowedBy = null;
+  }
+
+  // TODO: add getters
+  String get title => _title;
+  String get author => _author;
+  bool get isAvailable => _isAvailable;
+  String? get borrowedBy => _borrowedBy;
+
+  // TODO: add borrowBook method
+
+  // TODO: add returnBook method
+
+  // TODO: add displayInfo method
+}
+
 // void main() {
 //   var book = Book('The Hobbit', 'J.R.R. Tolkien');
 //   book.displayInfo();
-//
+
 //   book.borrowBook('Alice');
 //   book.displayInfo();
-//
+
 //   book.borrowBook('Bob');  // Should fail
-//
+
 //   book.returnBook();
 //   book.displayInfo();
 // }
