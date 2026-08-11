@@ -59,24 +59,47 @@ class Book {
   String? get borrowedBy => _borrowedBy;
 
   // TODO: add borrowBook method
+  void borrowBook(String personName) {
+    if (_isAvailable) {
+      _isAvailable = false;
+      _borrowedBy = personName;
+      print("✓ $personName borrowed '$_title'");
+    } else {
+      print("✗ '$_title' is already borrowed by $_borrowedBy");
+    }
+  }
+  
 
   // TODO: add returnBook method
+  void returnBook() {
+    if (!_isAvailable) {
+      print("✓ '$_title' was returned by $_borrowedBy");
+      _isAvailable = true;
+      _borrowedBy = null;
+    } else {
+      print("✗ '$_title' wasn't borrowed");
+    }
+  }
 
   // TODO: add displayInfo method
+  void displayInfo() {
+    print("Book: '$_title' by $_author");
+    print("Status: ${_isAvailable ? 'Available' : "Borrowed by $_borrowedBy"}");
+  }
 }
 
-// void main() {
-//   var book = Book('The Hobbit', 'J.R.R. Tolkien');
-//   book.displayInfo();
+void main() {
+  var book = Book('The Hobbit', 'J.R.R. Tolkien');
+  book.displayInfo();
 
-//   book.borrowBook('Alice');
-//   book.displayInfo();
+  book.borrowBook('Alice');
+  book.displayInfo();
 
-//   book.borrowBook('Bob');  // Should fail
+  book.borrowBook('Bob');  // Should fail
 
-//   book.returnBook();
-//   book.displayInfo();
-// }
+  book.returnBook();
+  book.displayInfo();
+}
 
 // EXPECTED OUTPUT:
 // Book: 'The Hobbit' by J.R.R. Tolkien
