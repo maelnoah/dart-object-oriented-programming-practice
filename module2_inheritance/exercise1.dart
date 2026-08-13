@@ -26,32 +26,74 @@
 //    - New method: meow() → print "$name meows: Meow!"
 
 // STARTER CODE:
-// abstract class Animal {
-//   // TODO: add fields, constructor, methods
-// }
-//
-// class Dog extends Animal {
-//   // TODO: add breed field, constructor, override displayInfo, add bark()
-// }
-//
-// class Cat extends Animal {
-//   // TODO: add color field, constructor, override displayInfo, add meow()
-// }
-//
-// void main() {
-//   var dog = Dog('Buddy', 3, 'Labrador');
-//   var cat = Cat('Whiskers', 2, 'Orange');
-//
-//   dog.displayInfo();
-//   dog.eat();
-//   dog.bark();
-//
-//   print('');
-//
-//   cat.displayInfo();
-//   cat.sleep();
-//   cat.meow();
-// }
+abstract class Animal {
+  // TODO: add fields, constructor, methods
+  String name;
+  int age;
+
+  Animal (this.name, this.age);
+
+  void eat(){
+    print("$name is eating");
+  }
+
+  void sleep(){
+    print("$name is sleeping");
+  }
+
+  void displayInfo(){
+    print("Name: $name, Age: $age");
+  }
+}
+
+class Dog extends Animal {
+  // TODO: add breed field, constructor, override displayInfo, add bark()
+  String breed;
+
+  Dog(String name, int age, this.breed) : super(name, age);
+
+  @override
+  void displayInfo() {
+    super.displayInfo();
+    print("Breed: $breed");
+  }
+
+  void bark() {
+    print("$name barks: Woof! Woof!");
+  }
+}
+
+class Cat extends Animal {
+  // TODO: add color field, constructor, override displayInfo, add meow()
+  String color;
+
+  Cat(String name, int age, this.color) : super(name, age);
+
+  @override
+  void displayInfo() {
+    super.displayInfo();
+    print("Color: $color");
+  }
+
+  void meow() {
+    print("$name meows: Meow!");
+  } 
+}
+
+void main() {
+  var dog = Dog('Buddy', 3, 'Labrador');
+  var cat = Cat('Whiskers', 2, 'Orange');
+
+  dog.displayInfo();
+  dog.eat();
+  dog.bark();
+
+  print('');
+
+  cat.displayInfo();
+  cat.sleep();
+  cat.meow();
+}
 
 // EXPECTED OUTPUT:
 // Name: Buddy, Age: 3
