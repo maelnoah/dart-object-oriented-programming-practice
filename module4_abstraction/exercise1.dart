@@ -32,39 +32,95 @@
 //    - Loop and print query result for each
 
 // STARTER CODE:
-// abstract class Database {
-//   // TODO: add abstract methods
-//   // TODO: add concrete testConnection method
-// }
+abstract class Database {
+  // TODO: add abstract methods
+  void connect();
+  void disconnect();
+  String query(String sql);
+  
+  // TODO: add concrete testConnection method
+void testConnection() {
+  connect();
+  print("Connected successfully!");
+  disconnect();
+}
+
+}
+
+class MySQLDatabase extends Database {
+  // TODO: implement abstract methods
+
+  @override
+  void connect(){
+    print("Connecting to MySQL...");
+  }
+  
+  @override
+  void disconnect(){
+    print("Disconnecting from MySQL...");
+  }
+
+  @override
+  String query(String sql){
+    return "MySQL result for: $sql";
+  }
+
+}
+
+class PostgresDatabase extends Database {
+  // TODO: implement abstract methods
+  @override
+  void connect(){
+    print("Connecting to PostgreSQL...");
+  }
+  
+  @override
+  void disconnect(){
+    print("Disconnecting from PostgreSQL...");
+  }
+
+  @override
+  String query(String sql){
+    return "PostgreSQL result for: $sql";
+  }
+
+}
+
+class MongoDatabase extends Database {
+  // TODO: implement abstract methods
+    @override
+  void connect(){
+    print("Connecting to MongoDB...");
+  }
+  
+  @override
+  void disconnect(){
+    print("Disconnecting from MongoDB...");
+  }
+
+  @override
+  String query(String sql){
+    return "MongoDB result for: $sql";
+  }
+  
+}
 //
-// class MySQLDatabase extends Database {
-//   // TODO: implement abstract methods
-// }
-//
-// class PostgresDatabase extends Database {
-//   // TODO: implement abstract methods
-// }
-//
-// class MongoDatabase extends Database {
-//   // TODO: implement abstract methods
-// }
-//
-// void main() {
-//   List<Database> databases = [
-//     MySQLDatabase(),
-//     PostgresDatabase(),
-//     MongoDatabase(),
-//   ];
-//
-//   for (var db in databases) {
-//     db.testConnection();
-//     print('');
-//   }
-//
-//   for (var db in databases) {
-//     print(db.query('SELECT * FROM users'));
-//   }
-// }
+void main() {
+  List<Database> databases = [
+    MySQLDatabase(),
+    PostgresDatabase(),
+    MongoDatabase(),
+  ];
+
+  for (var db in databases) {
+    db.testConnection();
+    print('');
+  }
+
+  for (var db in databases) {
+    print(db.query('SELECT * FROM users'));
+  }
+}
 
 // EXPECTED OUTPUT (example):
 // Connecting to MySQL...
